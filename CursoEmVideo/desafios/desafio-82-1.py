@@ -1,0 +1,17 @@
+lista = []
+lista_pares = []
+lista_impares = []
+
+
+while True:
+    numero = int(input('digite um valor: '))
+    lista.append(numero)
+    if str(input('Deseja continuar? ')).strip().upper() == 'N':
+        break
+
+for c in lista:
+    if c % 2 == 0:
+        lista_pares.append(c)
+    else:
+        lista_impares.append(c)
+print(f'sua lista foi {lista} \nos pares da sua lista foram {lista_pares} \ne os impares foram {lista_impares}')

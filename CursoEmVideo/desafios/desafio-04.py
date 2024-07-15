@@ -1,0 +1,13 @@
+
+v1 = input('digite um numero ')
+print(v1.isnumeric())
+v2 = input('digite uma palavra ')
+print(v2.isalpha())
+v3 = input('digite uma palavra ou um numero ')
+print(v3.isalnum())
+v4 = input('digite um espaço ')
+print(v4.isspace())
+v5 = input('digite somente com letras maiusculas ')
+print(v5.isupper())
+v6 = input('digite somente com letras minusculas ')
+print(v6.islower())
