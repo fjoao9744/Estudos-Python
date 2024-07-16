@@ -7,7 +7,7 @@ while True:
 
     if str(input('Deseja continuar?[S/N] ')).strip().upper() == 'N':
         break
-
+print(f'sua lista foi: {lista}')
 print(f'você digitou {cont} numeros')
 lista.sort(reverse=True)
 print(f'a ordem deles descente é {lista}')

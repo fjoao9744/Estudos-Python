@@ -4,8 +4,7 @@ lista_impares = []
 
 
 while True:
-    numero = int(input('digite um valor: '))
-    lista.append(numero)
+    lista.append(int(input('digite um valor: ')))
     if str(input('Deseja continuar? ')).strip().upper() == 'N':
         break
 
@@ -15,3 +14,4 @@ for c in lista:
     else:
         lista_impares.append(c)
 print(f'sua lista foi {lista} \nos pares da sua lista foram {lista_pares} \ne os impares foram {lista_impares}')
+

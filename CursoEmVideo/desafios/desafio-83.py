@@ -1,3 +1,5 @@
+#errado
+
 expressão = list(input('digite uma expressão '))
 valida = True
 parenteses = 0
