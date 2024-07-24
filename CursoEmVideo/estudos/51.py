@@ -1,5 +1,15 @@
-import django
+lista = ["smogon", 'capa', "maçã", "gostar"]
+lista2 = lista
+print(lista)
+print(lista2)
 
+lista = ["smogon", 'capa', "maçã", "gostar"]
+lista.pop()
 
-print('helo, world')
-print(django.get_version())
+print(lista)
+print(lista2)
+
+lista2.clear()
+
+print(lista)
+print(lista2)
