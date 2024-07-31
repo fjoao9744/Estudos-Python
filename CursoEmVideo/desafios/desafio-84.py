@@ -18,6 +18,7 @@ while True:
     
 for c in lista:
     pesos.append(c[1])
+    
 pesos.sort()
 mais_pesado = pesos[-1]
 mais_leve = pesos[0]
