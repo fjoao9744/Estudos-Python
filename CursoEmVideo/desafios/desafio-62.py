@@ -17,7 +17,7 @@ while fim == False:
     x = str(input('\ndeseja ver mais termos?[S/N] ')).strip().upper()
     if x == 'S':
         ultimo += int(input('quantos termos a mais deseja? '))
-         
+        
         
     else:
         fim = True
