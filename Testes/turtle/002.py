@@ -13,7 +13,4 @@ donatello.end_fill()
 
 
 
-
-
-
 done()
