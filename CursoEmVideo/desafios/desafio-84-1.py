@@ -1,11 +1,16 @@
-lista = []
+#faça um programa que leia o nome e o peso de varias pessoas e mostre a mais leve a mais pesada
+
+
+pessoas = []
 pessoa = []
+mais_pesadas = []
+mais_leves = []
 
 while True:
-    pessoa.append(str(input('qual o seu nome? ').strip().capitalize()))
-    pessoa.append(float(input('qual o seu peso? ')))
-    lista.append(pessoa[:])
-    pessoa.clear()
+    pessoa.append()
 
-    if str(input('deseja continuar?[S/N] ').strip().upper()) == 'N':
+
+
+    if str(input('Deseja continuar?[S/N] ')).strip().upper() == 'N':
         break
+
