@@ -1,40 +1,35 @@
-#errado
+#faça um programa que leia o nome e o peso de varias pessoas e mostre a mais leve a mais pesada
 
-lista = []
-pessoa = []
-pesos = []
-
+pessoas = []
+mais_pesados = []
+mais_leves = []
 while True:
-    pessoa.append(str(input('qual o seu nome? ').strip().capitalize()))
-    pessoa.append(float(input('qual o seu peso? ')))
-    
-    lista.append(pessoa[:])
-    pessoa.clear()
+    aux = []
+    aux.append(str(input("Nome: ")).strip())
+    aux.append(float(input("Peso: ")))
+    pessoas.append(aux)
 
-    
 
-    if str(input('deseja continuar?[S/N] ').strip().upper()) == 'N':
+    cont = str(input('Deseja continuar?[S/N] ')).strip().upper()
+    if cont == 'N':
         break
-    
-for c in lista:
-    pesos.append(c[1])
-    
-pesos.sort()
-mais_pesado = pesos[-1]
-mais_leve = pesos[0]
-mais_leve1 = []
-mais_pesado1 = []
 
-for c in lista:
-    if mais_pesado in c:
-        mais_pesado1.append(c[0])
-    if mais_leve in c:
-        mais_leve1.append(c[0])
+maior = menor = pessoas[0][1]
 
-print(f'foram cadastradas {len(lista)} pessoas')
-print(f'as pessoas mais pesadas foram: {mais_pesado1}')
-print(f'as pessoas mais leves foram: {mais_leve1}')
+for _ in pessoas:
+    if _[1] >= maior:
+        maior = _[1]
+    if _[1] <= menor:
+        menor = _[1]
 
-    
+for _ in pessoas:
+    if _[1] == maior:
+        mais_pesados.append(_[0])
+    if _[1] == menor:
+        mais_leves.append(_[0])
 
-        
+print(f"Você cadastrou {len(pessoas)} pessoas")
+print(f"O maior peso registrado foi de {maior}Kg. peso de {mais_pesados}")
+print(f"O menor peso registrado foi de {menor}Kg. peso de {mais_leves} ")
+
+
