@@ -5,6 +5,7 @@ tela = Tk()
 
 def circulo():
     donatello = Turtle()
+    donatello.color("purple")
     donatello.shape("turtle")
     donatello.circle(50)
 
@@ -13,15 +14,17 @@ def circulo():
 def quadrado():
     donatello = Turtle()
     donatello.shape("turtle")
+    donatello.color("purple")
     for c in range(4):
         donatello.forward(100)
         donatello.right(-90)
-        
+
     mainloop()
 
 def triangulo():
     donatello = Turtle()
     donatello.shape("turtle")
+    donatello.color("purple")
     for c in range(3):
         donatello.forward(100)
         donatello.right(-120)
