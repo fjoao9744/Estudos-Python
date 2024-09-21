@@ -12,6 +12,7 @@ def circulo():
 
 def quadrado():
     donatello = Turtle()
+    donatello.shape("turtle")
     for c in range(4):
         donatello.forward(100)
         donatello.right(-90)
@@ -20,6 +21,7 @@ def quadrado():
 
 def triangulo():
     donatello = Turtle()
+    donatello.shape("turtle")
     for c in range(3):
         donatello.forward(100)
         donatello.right(-120)
