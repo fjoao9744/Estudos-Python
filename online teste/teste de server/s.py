@@ -1,0 +1,1 @@
+print("se você esta vendo isso então você usa smogon")
