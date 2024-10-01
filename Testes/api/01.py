@@ -8,7 +8,13 @@ supabase = create_client(url, key)
 
 # Exemplo de operação
 response = supabase.table('smogon').select('*').execute()
-data = supabase.table('tabela 1').select('*').execute()
+
+data = [
+    {"nome": "smogon"},
+    {"nome": "capa"}
+]
+
+smog = supabase.table('smogon').insert(data).execute()
 
 print(response)
-print(data)
+
