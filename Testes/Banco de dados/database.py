@@ -9,13 +9,13 @@ class Usuario(Model): #tabela de usuarios(quando você coloca model entre parent
     #lembrando que o peewee ja gera o id automaticamente
 
     class Meta:
-        database = db #serve para o pewee entender em qual banco de dados essa tabela vai conversar
+        database = db #serve para o peewee entender em qual banco de dados essa tabela vai conversar
 
 class Anuncio(Model):
     usuario = ForeignKeyField(Usuario, backref='usuarios') #a chave estrangeira | o backref serve para criar um prefixo 
-    titulo = CharField()
+    titulo = CharField() 
     descricao = TextField() #o textfield não tem limite de caracteres
-    valor = DecimalField() #representa o valor a ser pago ou seja, um umero decimal
+    valor = DecimalField() #representa o valor a ser pago ou seja, um numero decimal
 
     class Meta:
         database = db

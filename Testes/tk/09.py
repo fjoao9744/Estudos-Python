@@ -1,7 +1,5 @@
 from tkinter import *
 
-
-
 tela = Tk()
 
 l = Label(tela, text="esse texto sera escondido") #esconder texto
