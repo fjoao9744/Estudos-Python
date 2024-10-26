@@ -1,0 +1,1 @@
+print('Hello, World!') #o print vai mostrar a string(representada entre "") na tela
