@@ -1,0 +1,21 @@
+Label: Exibe texto ou imagens fixas.
+Button: Botão clicável.
+Entry: Campo de entrada de texto de uma linha.
+Text: Campo de entrada de texto de várias linhas.
+Checkbutton: Caixa de seleção (checkbox).
+Radiobutton: Botão de opção para selecionar uma opção entre várias.
+Listbox: Exibe uma lista de itens para seleção.
+Canvas: Área para desenhos, gráficos ou imagens.
+Scale: Barra deslizante para valores numéricos.
+Spinbox: Caixa de entrada com botões de incremento/decremento.
+Scrollbar: Barra de rolagem para outros widgets.
+Frame: Contêiner para agrupar widgets.
+Toplevel: Janela adicional separada da janela principal.
+Message: Exibe texto, adaptando o tamanho automaticamente.
+Menu: Cria menus de navegação.
+Menubutton: Botão que abre um menu ao ser clicado.
+PanedWindow: Contêiner que organiza widgets em uma área redimensionável.
+LabelFrame: Um Frame com rótulo, ideal para organizar widgets relacionados.
+MessageBox: Caixa de diálogo padrão com mensagens para o usuário (não é um widget direto, mas pode ser chamado).
+Dialog: Janela de diálogo personalizada para interações simples.
+Progressbar (com ttk): Barra de progresso para mostrar o avanço de tarefas.
