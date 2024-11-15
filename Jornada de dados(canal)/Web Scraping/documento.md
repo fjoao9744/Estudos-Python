@@ -61,3 +61,18 @@ dataframes são formas de representar tabelas ao invez de usar dicionarios e uti
 
 ## concat
 a função concat do pandas, junta duas tabelas e é simples, colocamos a primeira tabela e a segunda como argumentos e pronto
+
+# 09 SQLite3
+## connect
+quando chamamos a função connect("nome do banco de dados") criamos um banco de dados local
+
+## cursor
+a função cursor possibilita a gente de manipular as informações do banco de dados 
+
+## execute
+o execute permite que usemos comandos em SQL dentro do codigo de python
+
+## commit
+salva as alterações no banco de dados que foi alterado com o execute
+
+obs: as funções, cursor, execute e commit só funcionam se estiverem interligadas, ou seja, não tem como usar o commit ou o execute sem o cursor
