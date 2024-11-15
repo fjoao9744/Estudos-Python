@@ -37,3 +37,17 @@ no final assim:
 soup = BeautifulSoup(html, 'html.parser')
 name = soup.find("h1", class_="ui-pdp-title").get_text()
 
+# 05 find_all
+quando temos uma tag com mais de uma classe e queremos pegar todas as tags com aquela classe, usamos o find_all
+
+prices = soup.find_all("span", class_="andes-money-amount__fraction")
+
+# 06 Como pegar os preços
+quando você usa o find_all você recebe uma lista de preços e para trabalhar com os preços dessa lista você tem que converter elas para um numero
+mas se converter para numero vai dar um erro pq estamos tentando transformar uma tag em um numero, então usamos o get_text() na tag e depois convertemos para numero
+então deve ficar assim:
+
+prices = soup.find_all("span", class_="andes-money-amount__fraction")
+
+full_price = float(prices[0].get_text())
+parse_price = float(prices[1].get_text())
