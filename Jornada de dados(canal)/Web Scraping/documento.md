@@ -51,3 +51,4 @@ prices = soup.find_all("span", class_="andes-money-amount__fraction")
 
 full_price = float(prices[0].get_text())
 parse_price = float(prices[1].get_text())
+
