@@ -52,3 +52,12 @@ prices = soup.find_all("span", class_="andes-money-amount__fraction")
 full_price = float(prices[0].get_text())
 parse_price = float(prices[1].get_text())
 
+# 07 strftime
+strftime é uma função da biblioteca time para pegar a hora atual e formatar como uma string
+
+# 08 Usando o Pandas
+## DataFrames
+dataframes são formas de representar tabelas ao invez de usar dicionarios e utilizamos chamando a função DataFrame e colocando o dicioario a virar um dataframe
+
+## concat
+a função concat do pandas, junta duas tabelas e é simples, colocamos a primeira tabela e a segunda como argumentos e pronto
