@@ -77,5 +77,5 @@ salva as alterações no banco de dados que foi alterado com o execute
 
 obs: as funções, cursor, execute e commit só funcionam se estiverem interligadas, ou seja, não tem como usar o commit ou o execute sem o cursor
 
-1:11:40 
+1:15:00
 https://www.youtube.com/watch?v=LDki9Xaw674
