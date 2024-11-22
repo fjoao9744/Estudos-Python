@@ -1,8 +1,14 @@
-import requests
 from bs4 import BeautifulSoup
-import time
 import pandas as pd
+import requests
+import time
 import sqlite3
+
+'''
+import os
+import discord
+from dotenv import load_dotenv
+'''
 
 def pagina(url): 
     response = requests.get(url)
@@ -67,6 +73,33 @@ def get_max_price(db):
 tabela = create_connection()
 setup_database(tabela)
 
+'''
+#criação do bot de discord
+intents = discord.Intents.default()  
+intents.message_content = True  
+intents.members = True  
+
+client = discord.Client(intents=intents)
+
+async def discord(message):
+    
+    guild_id = '1308916432012181554' #    id do servidor
+    channel_id = '1308916468129202227' #    id do canal
+    
+    guild = client.get_guild(int(guild_id))
+    if guild:
+        channel = guild.get_channel(int(channel_id))
+        if channel:
+            await channel.send(message)
+
+load_dotenv() # carrega as variaveis
+
+token = os.getenv("DISCORD_SERVER_TOKEN") 
+
+# Coloque o token do seu bot aqui
+client.run(token)
+'''
+
 while True:
     page = pagina("https://produto.mercadolivre.com.br/MLB-5085319476-xiaomi-poco-c65-8gb-ram-256gb-com-nfc-global-original-_JM?attributes=COLOR_SECONDARY_COLOR%3AQXp1bC1hw6dv&quantity=1")
     product = filtrar_tag(page)
@@ -82,10 +115,12 @@ while True:
         maior_price_time = atual_price_time
 
     else:
-        print(f"maior preço : {maior_price} as {maior_price_time}")
+        '''
+        print("a")
+        discord(f"maior preço : {maior_price} as {maior_price_time}")
+        '''
+        pass
 
     save_in_db(tabela, product)
     
     time.sleep(10)
-
-    
