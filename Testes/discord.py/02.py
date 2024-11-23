@@ -1,4 +1,5 @@
 import discord
+import asyncio
 
 # permissões(intents) que o bot vai ter
 intents = discord.Intents.default()
@@ -8,21 +9,26 @@ intents.members = True  # Permite que o bot acesse eventos relacionados a membro
 # Criação do cliente do bot
 client = discord.Client(intents=intents)
 
+
 # Evento que ocorre quando o bot se conecta ao Discord
 @client.event
 async def on_ready():
     print(f'Bot {client.user} está online!')
     
     # Enviar uma mensagem para você em um canal específico
-    # Aqui você usa o ID do servidor (guild) e o ID do canal
-    guild_id = '1308916432012181554'  # Substitua pelo seu ID
-    channel_id = '1308916432452456510'  # Substitua pelo ID do canal onde quer enviar a mensagem
+    guild_id = 1308916432012181554  # ID do servidor
+    channel_id = 1308916432452456510  # ID do canal
     
-    guild = client.get_guild(int(guild_id))
+    guild = client.get_guild(guild_id)
     if guild:
-        channel = guild.get_channel(int(channel_id))
+        channel = guild.get_channel(channel_id)
         if channel:
-            await channel.send('smogon')
+            await repeat("smogon", channel)
+
+async def repeat(message: str, channel):
+    while True:
+        await asyncio.sleep(1)
+        await channel.send(message)
 
 from dotenv import load_dotenv
 import os

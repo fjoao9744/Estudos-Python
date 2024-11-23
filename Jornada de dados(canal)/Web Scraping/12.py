@@ -3,12 +3,18 @@ import pandas as pd
 import requests
 import time
 import sqlite3
-
-'''
 import os
 import discord
 from dotenv import load_dotenv
-'''
+import asyncio
+
+intents = discord.Intents.default()
+intents.message_content = True  # Permite que o bot leia  mensagens
+intents.members = True  # Permite que o bot acesse eventos relacionados a membros
+
+# Criação do cliente do bot
+client = discord.Client(intents=intents)
+
 
 def pagina(url): 
     response = requests.get(url)
@@ -73,54 +79,48 @@ def get_max_price(db):
 tabela = create_connection()
 setup_database(tabela)
 
-'''
-#criação do bot de discord
-intents = discord.Intents.default()  
-intents.message_content = True  
-intents.members = True  
-
-client = discord.Client(intents=intents)
-
-async def discord(message):
+@client.event
+async def on_ready():
+    print(f'Bot {client.user} está online!')
     
-    guild_id = '1308916432012181554' #    id do servidor
-    channel_id = '1308916468129202227' #    id do canal
+    # Enviar uma mensagem para você em um canal específico
+    guild_id = 1308916432012181554  # ID do servidor
+    channel_id = 1308916468129202227  # ID do canal
     
-    guild = client.get_guild(int(guild_id))
+    guild = client.get_guild(guild_id)
     if guild:
-        channel = guild.get_channel(int(channel_id))
+        channel = guild.get_channel(channel_id)
         if channel:
-            await channel.send(message)
+            await send( channel)
+
+async def send(channel):
+    while True:
+        page = pagina("https://produto.mercadolivre.com.br/MLB-5085319476-xiaomi-poco-c65-8gb-ram-256gb-com-nfc-global-original-_JM?attributes=COLOR_SECONDARY_COLOR%3AQXp1bC1hw6dv&quantity=1")
+        product = filtrar_tag(page)
+
+        maior_price = product["full"]
+        maior_price_time = product["hora_atual"]
+
+        atual_price, atual_price_time = get_max_price(tabela)
+
+        if atual_price > maior_price:
+            maior_price = atual_price
+            maior_price_time = atual_price_time
+            await channel.send(f"Preço subiu, agora é R${maior_price}")
+
+        else:
+            await channel.send(f"maior preço: {maior_price} as {maior_price_time}")
+            
+        save_in_db(tabela, product)
+        await asyncio.sleep(10)
+
+from dotenv import load_dotenv
+import os
 
 load_dotenv() # carrega as variaveis
 
-token = os.getenv("DISCORD_SERVER_TOKEN") 
+token = os.getenv("DISCORD_BOT_TOKEN_WEB_SCRAPPING") 
 
 # Coloque o token do seu bot aqui
 client.run(token)
-'''
 
-while True:
-    page = pagina("https://produto.mercadolivre.com.br/MLB-5085319476-xiaomi-poco-c65-8gb-ram-256gb-com-nfc-global-original-_JM?attributes=COLOR_SECONDARY_COLOR%3AQXp1bC1hw6dv&quantity=1")
-    product = filtrar_tag(page)
-
-    maior_price = product["full"]
-    maior_price_time = product["hora_atual"]
-
-    atual_price, atual_price_time = get_max_price(tabela)
-
-    if atual_price > maior_price:
-        print("preço subiu")
-        maior_price = atual_price
-        maior_price_time = atual_price_time
-
-    else:
-        '''
-        print("a")
-        discord(f"maior preço : {maior_price} as {maior_price_time}")
-        '''
-        pass
-
-    save_in_db(tabela, product)
-    
-    time.sleep(10)
