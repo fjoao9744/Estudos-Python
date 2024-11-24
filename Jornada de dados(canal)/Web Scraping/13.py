@@ -25,7 +25,7 @@ def filtrar_tag(html) -> dict:
     soup = BeautifulSoup(html, 'html.parser')
     name = soup.find("h1", class_="ui-pdp-title").get_text()
     prices = soup.find_all("span", class_="andes-money-amount__fraction")
-    
+
     full_price = float(prices[0].get_text().replace(".", ''))
     try:
         parse_price = float(prices[1].get_text().replace(".", ''))
@@ -47,7 +47,7 @@ def create_connection(db_name='iphone_prices.db'):
     return db
 
 def setup_database(db):
-    
+
     cursor = db.cursor() 
 
     cursor.execute('''
@@ -72,7 +72,7 @@ def get_max_price(db):
 
     cursor.execute("SELECT MAX(full), hora_atual FROM prices") # pega o maior preço da tabela
 
-    result = cursor.fetchone() # guarda o resultado da seleção em uma varaivel
+    result = cursor.fetchone() # guarda o resultado da seleção em uma variavel
     return result[0], result[1]
 
 
@@ -82,11 +82,11 @@ setup_database(tabela)
 @client.event
 async def on_ready():
     print(f'Bot {client.user} está online!')
-    
+
     # Enviar uma mensagem para você em um canal específico
     guild_id = 1308916432012181554  # ID do servidor
     channel_id = 1308916468129202227  # ID do canal
-    
+
     guild = client.get_guild(guild_id)
     if guild:
         channel = guild.get_channel(channel_id)
@@ -100,22 +100,20 @@ async def send(channel):
 
         maior_price = product["full"]
         maior_price_time = product["hora_atual"]
-
+        
         atual_price, atual_price_time = get_max_price(tabela)
-
-        if atual_price > maior_price:
-            maior_price = atual_price
-            maior_price_time = atual_price_time
-            await channel.send(f"Preço subiu, agora é R${maior_price}")
-
-        else:
-            await channel.send(f"maior preço: {maior_price} as {maior_price_time}")
-            
+        try:
+            if atual_price > maior_price:
+                maior_price = atual_price
+                maior_price_time = atual_price_time
+                await channel.send(f"Preço subiu, agora é R${maior_price}")
+    
+            else:
+                await channel.send(f"preço atual: {maior_price} as {maior_price_time}")
+        except:
+            await channel.send(f"preço atual: {maior_price} as {maior_price_time}")
         save_in_db(tabela, product)
         await asyncio.sleep(10)
-
-from dotenv import load_dotenv
-import os
 
 load_dotenv() # carrega as variaveis
 
