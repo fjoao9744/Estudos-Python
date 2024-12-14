@@ -17,4 +17,4 @@ while True:
         break
 
 for _ in alunos:
-    print(f"A média de {_['nome']} foi {_['media']}")
+    print(f"A média de {_['nome']} foi {_['media']} e ele esta {_['situação']}")
