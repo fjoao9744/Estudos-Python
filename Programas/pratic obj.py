@@ -17,7 +17,6 @@ class Pessoa:
                 print(f"Ola! meu nome é {self.nome} e eu tenho {self.idade} anos!")
                 
                 
-                
     def adicionar_livro(self, livro: object):
         self.livros.append(livro)
         
@@ -26,7 +25,7 @@ class Pessoa:
             print(f"{self.nome} não possui nenhum livro. ")
             return
         
-        for i, livro in enumerate(self.livros):
+        for i, livro in enumerate(self.livros, start=1):
             print(f"Livro {i}: ")
             livro.info()
         
