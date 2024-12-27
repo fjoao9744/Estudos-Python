@@ -29,7 +29,7 @@ for _ in pessoas:
 
 media_idade /= len(pessoas)
 
-print(f"A media de idade entre os cadastrados é de {media_idade}")
+print(f"A media de idade entre os cadastrados é de {media_idade:.2f}")
 
 print("Todas as mulheres cadastradas foram:", end=" ")
 for _ in pessoas:
@@ -37,9 +37,9 @@ for _ in pessoas:
         print(_["nome"], end=" ")
 print()
 
-print("E todas as pessoas com a idade acima foram:", end=" ")
+print("E todas as pessoas com a idade acima foram:")
 for _ in pessoas:
     if _["idade"] >= media_idade:
-        print(_["nome"])
+        print("     =>", _["nome"], _["sexo"], _["idade"])
 
 
