@@ -12,8 +12,13 @@ while True:
         jogador["gols"].append(int(input(f"Quantos gols foram marcados no jogo {_}? ")))
 
     jogadores.append(jogador)
-
-    if input("Deseja continuar?[S/N] ").upper().strip()[0] == "N":
+    resp = input("Deseja continuar?[S/N] ").upper().strip()[0]
+    
+    while resp not in "SN":
+        print("Digite apenas S ou N")
+        resp = input("Deseja continuar?[S/N] ").upper().strip()[0]
+        
+    if resp == "N":
         break
     print("-" * 20)
 
