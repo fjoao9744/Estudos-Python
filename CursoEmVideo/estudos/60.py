@@ -1,0 +1,1 @@
+print(list(map(lambda num : num * 2 , (1, 3, 5, 6, 10, 20))))

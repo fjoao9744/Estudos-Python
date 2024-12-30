@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+import os
 import discord
 
 # permissões(intents) que o bot vai ter
@@ -24,8 +26,6 @@ async def on_ready():
         if channel:
             await channel.send('smogon')
 
-from dotenv import load_dotenv
-import os
 
 load_dotenv() # carrega as variaveis
 
